@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AspCoreEve.Models.Catagory>
+@{ 
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"content="width=device-width"/>
+    <title>Catagory</title>
+</head>
+<body>
+
+    <p>
+        <a asp-action="Create" asp-controller="CAtagory">Create</a>
+        <a asp-action="Index" asp-controller="BusInformation">Visit Bus Infomation</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model=>model.CatagoryName)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null)
+            {
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem=>item.CatagoryName)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Cid">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Cid">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>
